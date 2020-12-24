@@ -71,5 +71,42 @@ public class Main {
             }
             System.out.println();
         }
+        System.out.println("Введите шаг для сдвига вправо");
+        int stepR = scan.nextInt();
+
+        int j;
+        for (int r = 0; r < stepR; r++) {
+            for (int i = 0; i < a.length; i++) {
+               int tmp = a[i][a.length - 1];
+                for ( j = a.length - 1; j > 0; j--) {
+                    a[i][j] = a[i][j - 1];
+                }
+                a[i][j] = tmp;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int o = 0; o < n; o++) {
+                System.out.printf("%4d", a[i][o]);
+            }
+            System.out.println();
+        }
+        System.out.println("Введите шаг для сдвиг вниз");
+        int stepDawn = scan.nextInt();
+
+        for (int r = 0; r < stepDawn; r++) {
+            for (int i = 0; i < a.length; i++) {
+                int tmp = a[a.length - 1][i];
+                for ( j = a.length - 1; j > 0; j--) {
+                    a[j][i] = a[j-1][i];
+                }
+                a[j][i] = tmp;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int o = 0; o < n; o++) {
+                System.out.printf("%4d", a[i][o]);
+            }
+            System.out.println();
+        }
     }
 }
