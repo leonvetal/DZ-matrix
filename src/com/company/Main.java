@@ -36,7 +36,7 @@ public class Main {
 //строки
         System.out.println("-------------- сорт построчно");
         for (int i = 0; i < n; i++) {
-             for (int j = 0; j < n; j++) {
+            for (int j = 0; j < n; j++) {
                 for (int k = j + 1; k < n; k++) {
                     if (a[i][j] > a[i][k]) {
                         int tmp = a[i][j];
@@ -77,8 +77,8 @@ public class Main {
         int j;
         for (int r = 0; r < stepR; r++) {
             for (int i = 0; i < a.length; i++) {
-               int tmp = a[i][a.length - 1];
-                for ( j = a.length - 1; j > 0; j--) {
+                int tmp = a[i][a.length - 1];
+                for (j = a.length - 1; j > 0; j--) {
                     a[i][j] = a[i][j - 1];
                 }
                 a[i][j] = tmp;
@@ -96,11 +96,28 @@ public class Main {
         for (int r = 0; r < stepDawn; r++) {
             for (int i = 0; i < a.length; i++) {
                 int tmp = a[a.length - 1][i];
-                for ( j = a.length - 1; j > 0; j--) {
-                    a[j][i] = a[j-1][i];
+                for (j = a.length - 1; j > 0; j--) {
+                    a[j][i] = a[j - 1][i];
                 }
                 a[j][i] = tmp;
             }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int o = 0; o < n; o++) {
+                System.out.printf("%4d", a[i][o]);
+            }
+            System.out.println();
+        }
+        System.out.println("---------------------нули справа");
+        for (int i = 0; i < a.length; i++) {
+            int x = 0;
+            int[] c = new int[a.length];
+            for (int x1 = 0; x1 < a.length; x1++) {
+                if (a[i][x1] != 0) {
+                    c[x++] = a[i][x1];
+                }
+            }
+            a[i] = Arrays.copyOf(c, c.length);
         }
         for (int i = 0; i < n; i++) {
             for (int o = 0; o < n; o++) {
